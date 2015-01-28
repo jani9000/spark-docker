@@ -34,6 +34,7 @@ docker run \
   -p 8080 \
   -d \
   $(slave_links) \
+  -v ~/apps:/var/spark/apps \
   jani9000/spark-docker /sbin/my_init -- sh -c "cd /usr/local/spark && sbin/start-master.sh && tail -f /dev/null"
 
 for((i=1; i<=SLAVE_COUNT; i++))
