@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 SLAVE_COUNT=2
 
 # Run slaves.
@@ -12,6 +14,7 @@ do
     -p 7078 \
     -p 8081 \
     -d \
+    -v /var/spark/data data
     jani9000/spark-docker /sbin/my_init -- sh -c "tail -f /dev/null"
 done
 
